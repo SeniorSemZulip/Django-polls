@@ -1,0 +1,15 @@
+<h1>My Notes</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <input name="text" placeholder="Write a note bruh" required>
+    <button>Add</button>
+</form>
+
+<ul>
+    {% for note in notes %}
+        <li>{{ note.text }} <small>({{ note.created }})</small></li>
+    {% empty %}
+        <li>No notes yet.</li>
+    {% endfor %}
+</ul>
